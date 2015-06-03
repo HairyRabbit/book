@@ -31,4 +31,23 @@ Ember的项目结构大家都知道，常用的有Route、controller、view、mo
 
 $ ember g controller login
 
-他就会自动创建一个模板文件出来，可以说是很方便。
+就会自动创建一个模板文件出来，可以说是很方便。
+
+值得一提的是，ember-cli使用的是**Broccoli**，所以他支持Broccoli的所有插件。如果你是缩进狂魔，one line style，没有问题，coffee、sass 、emblem这些插件都可以安装使用。
+
+但不光是Broccoli的插件，ember-cli本身有一套插件。像常用的simple-auth、locolstorage adapter等都可以通过命令行直接安装，而不需要**任何配置**。如果你玩的足够666666，你还可以自己做插件。当然，安装插件我也会去介绍。
+
+虽然emebr-cli的功能很强大，但是他还不是足够稳定，当前版本是0.2.7。
+
+## 运行环境
+
+ember-cli在**各种**平台都能够运行。
+
+我的运行环境是:
+
+* ubuntu 15
+* nodejs 0.12
+* npm 2.1
+* emacs 24.0
+* ember 2.0-cancay
+* ember-cli 0.2.7
