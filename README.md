@@ -1,7 +1,7 @@
-Ember-cli :kiss:
+ember & cli :kiss:
 ========
 
-## EmberJS 简介
+## ember.js
 
 首先是要简单的介绍一下，[EmberJS](emberjs.com) 是一个MVC框架，恩。
 
@@ -29,7 +29,9 @@ Grunt之后出现了一些其他工具，如[Gulp](http://gulpjs.com)、[Broccol
 
 Ember的项目结构大家都知道，常用的有Route、controller、view、modal，根据命名规则和模块化开发，可能我们js文件有很多很多，那我们如何要快速创建呢？难道要鼠标点右键新建，或是emacs一个空文件么？使用ember-cli的话就会容易很多，比如我想创建login的controller，那只需要在终端输入:
 
-$ ember g controller login
+```sh
+ember g controller login
+```
 
 就会自动创建一个模板文件出来，可以说是很方便。
 
@@ -43,11 +45,13 @@ $ ember g controller login
 
 ember-cli在**各种**平台都能够运行。
 
-我的运行环境是:
+在例子中使用的各种环境，编辑器，包是:
 
-* ubuntu 15
-* nodejs 0.12
-* npm 2.1
+* ubuntu 15.04
+* nodejs 0.12.4
+* npm 2.0.1
 * emacs 24.0
 * ember 2.0-cancay
 * ember-cli 0.2.7
+
+并且这些示例在win下都测试过，能够正常运行。
