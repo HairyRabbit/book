@@ -1,4 +1,4 @@
-# ember-cli 的安装和运行
+# ember-cli 的安装
 
 恩，首先肯定是要说明ember-cli要如何安装。如果你在PC上已经装了nodejs和npm，那可以越过前面的小节，如果没有，那么首先要安装nodejs。
 
@@ -17,6 +17,17 @@ npm -v
 ```
 
 如果能正确打印出版本号，说明nodejs正确安装;如果提示没有node命令，那可能是没有找到node路径，那么需要在系统环境变量PATH里面添加一条node路径。
+
+在命令行里输入：
+
+```sh
+# 比如nodejs安装在了D盘
+SET PATH=D:\Nodejs;%PATH%
+```
+
+或者右键计算机 -> 属性 -> 高级系统设置 -> 高级 -> 环境变量 -> 系统变量 -> 找到PATH后双击，把nodejs的安装路径复制进去：
+
+![node_path](images/node_path.png)
 
 ### nodejs with linux
 在linux的安装也很简单，拿Ubuntu为例，直接在包管理器里面就可以找到nodejs并下载，不过要记得加sudo：
