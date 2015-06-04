@@ -37,7 +37,7 @@ ember g controller login
 
 值得一提的是，ember-cli使用的是**Broccoli**，所以他支持Broccoli的所有插件。如果你是缩进狂魔，one line style，没有问题，coffee、sass 、emblem这些插件都可以安装使用。
 
-但不光是Broccoli的插件，ember-cli本身有一套插件。像常用的simple-auth、locolstorage adapter等都可以通过命令行直接安装，而不需要**任何配置**。如果你玩的足够666666，你还可以自己做插件。当然，安装插件我也会去介绍。
+但不光是Broccoli的插件，ember-cli本身有一套插件。像常用的simple-auth、locolstorage adapter等都可以通过命令行直接安装，而不需要**任何配置**。如果你玩的足够666666，你还可以自己做插件。当然，安装插件的方法我也会去介绍。
 
 虽然emebr-cli的功能很强大，但是他还不是足够稳定，当前版本是0.2.7。
 
