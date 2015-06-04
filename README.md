@@ -9,7 +9,7 @@ ember & cli :kiss:
 
 刚开始接触Ember真的是一头雾水，不明白这个框架的强大之处，因为那时候jQuery很流行，所以就不知不觉的把Ember和JQuery做比较，后来研究过一段时间的Rails才发现，这两根本就不是一个次元的东西。
 
-之后也出了一些MVC框架，比如[Backbone](http://backbonejs.org), [Angular](http://angularjs.org)。然后就能看到大片大片的比较文章，《why i choose Ember》之类。这些框架我也稍微有了解了下，怎么说呢，我不太喜欢Angular在标签里那样写，Backbone可能有些简单，不能满足需求，而Ember呢，他太大了，加载有些慢。但是我还是选择了站在Ember这边，很大一个原因是他是由**社区**驱动的，现在这个开源年代，这么做很靠谱，说不定那天google跪了Angular也就不在了。
+之后也出了一些MVC框架，比如[Backbone](http://backbonejs.org), [Angular](http://angularjs.org)。然后就能看到大片大片的比较文章，《why i choose Ember》之类。这些框架我也稍微有所了解，怎么说呢，我不太喜欢Angular在标签里那样写，Backbone可能有些简单，不能满足需求，而Ember呢，他太大了，加载有些慢。但是我还是选择了站在Ember这边，很大一个原因是他是由**社区**驱动的，现在这个开源年代，这么做很靠谱，说不定那天google跪了Angular也就不在了。
 
 真正喜欢Ember的原因其实是因为ES6。Ember是首先使用ES6模块的MVC框架，并且那时候源码也都改造成了ES6模块。RSVP是一个promiss库，也是由Ember核心团队的成员开发，这个也是我看中Ember的一个原因，因为是真真切切被jQuery的promiss摧残过。
 
@@ -37,7 +37,7 @@ ember g controller login
 
 值得一提的是，ember-cli使用的是**Broccoli**，所以他支持Broccoli的所有插件。如果你是缩进狂魔，one line style，没有问题，coffee、sass 、emblem这些插件都可以安装使用。
 
-但不光是Broccoli的插件，ember-cli本身有一套插件。像常用的simple-auth、locolstorage adapter等都可以通过命令行直接安装，而不需要**任何配置**。如果你玩的足够666666，你还可以自己做插件。当然，安装插件我也会去介绍。
+但不光是Broccoli的插件，ember-cli本身有一套插件。像常用的simple-auth、locolstorage adapter等都可以通过命令行直接安装，而不需要**任何配置**。如果你玩的足够666666，你还可以自己做插件。当然，安装插件的方法我也会去介绍。
 
 虽然emebr-cli的功能很强大，但是他还不是足够稳定，当前版本是0.2.7。
 
