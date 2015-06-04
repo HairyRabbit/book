@@ -2,14 +2,40 @@
 
 工欲善其事，必先利其器。没错，四条腿比两条腿的跑得快，用键盘比用鼠标来的快，用快捷键更是快上加快。那么选一个好的编辑器能够很大的提升效率。
 
-### sublime text 3
+## sublime text 3
 
-说到前端编辑器，首先就要提到一个大家很常用的。[sublime text 3](http://)大家一定很了解，而且用户应该很多。st3可以说是一个超级记事本，C+d谁用谁知道。那么用st3来写js完全没有问题，下面提供一些我常用的st3插件。
+<img src="images/sublimetext.png" title="sublime text 3" width="128" />
 
-如果有编译css的需要，可以
+说到前端编辑器，首先就要提到一个大家很常用的。[sublime text 3](http://www.sublimetext.com)大家一定很了解，而且用户应该很多。st3可以说是一个超级记事本，C+d谁用谁知道。那么用st3来写js完全没有问题，下面提供一些我常用的st3插件。
 
-### Atom
+安装st3插件需要先安装包管理器，安装办法是在st3里面按`Ctrl + ``打开控制台。然后把下面的代码复制在控制台里面：
 
-### Emacs
+```py
+import urllib.request,os,hashlib;h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d';pf = 'Package Control.sublime-package';ipp = sublime.installed_packages_path();urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) );by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read();dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by) 
+```
+
+回车确定后重启st3，这样就可以使用[Package Control](https://packagecontrol.io/installation)了。使用快捷键`Ctrl + Shift + P`打开st3的命令行输入`cpi`(Control Package Install)，然后输入名称来查找我们常用的插件比如sass、less、coffee。
+
+<img src="images/st_cp.png" title="sublime text 3 Package Control" width="128" />
+
+对于ember来说有一些常用的插件，这样我们在输入的时候就会有自动补全：
+
+### hbs
+* [Handlebars](https://packagecontrol.io/packages/Handlebars)
+
+### ember
+* [Ember.​js Snippets](https://packagecontrol.io/packages/Ember.js%20Snippets)
+* [Ember CLI Snippets](https://packagecontrol.io/packages/Ember%20CLI%20Snippets)
+
+### 资源
+* [sublime](https://github.com/JaredCubilla/sublime)
+
+## Atom
+
+<img src="images/atom.png" title="atom" width="128" />
+
+[Atom](https://atom.io/)是我最喜欢的编辑器（但不是日常用的），为什么这么说呢？首先他是用nodejs构建的，而且可以自由定制。我们可以在atom里打开控制台像这个样子：
+
+## Emacs
 
 
