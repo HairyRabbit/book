@@ -25,7 +25,7 @@ import urllib.request,os,hashlib;h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a
 * [Ember CLI Snippets](https://packagecontrol.io/packages/Ember%20CLI%20Snippets)
 * [sublime资源](https://github.com/JaredCubilla/sublime)
 
-在使用st3和ember-cli的时候还需要注意一个地方。由于ember-cli使用Broccoli，而Broccoli会在tmp生成大量的文件夹和文件，这会变得很慢，CPU会跑到90%。最好的办法就是让st3不要监视tmp文件夹的变化，所以需要在用户设置 Preferences -> Settings -> User里面加入这样一句话:
+在使用st3和ember-cli的时候还需要注意一个地方。由于ember-cli使用Broccoli，而Broccoli会在tmp生成大量的文件夹和文件，这会变的很慢，CPU会跑到90%。最好的办法就是让st3不要监视tmp文件夹的变化，所以需要在用户设置 Preferences -> Settings -> User里面加入这样一句话:
 
 ```js
 // folder_exclude_patterns and file_exclude_patterns control which files
