@@ -36,9 +36,9 @@ SET PATH=D:\Nodejs;%PATH%
 sudo apt-get install nodejs
 ```
 
-但是要注意一点，ember-cli要求node的本版号是**0.12**，而从apt-get里面安装的版本号是0.10，无语…，…只从官网上下载0.12版本。
+但是要注意一点，ember-cli要求node的本版号是**0.12**，而从apt-get里面安装的版本号是0.10，无语…，…只能从官网上下载0.12版本。
 
-如果下载的是源码文件那么需要按照官方文档去编译，需要说的是Ubuntu已经自带了编译node的一些工具，解压后直接编译就可以了。
+如果下载的是源码文件那么需要按照官方文档去编译，需要注意的是Ubuntu已经自带了编译node的一些工具，解压后直接编译就可以了。
 
 ```sh
 ./configure
@@ -62,7 +62,7 @@ v0.12.4
 
 ## bower and ember-cli
 
-安装ember-cli需要用到npm。我们把ember-cli安装在全局，只要这样才能够在命令行简单的使用ember命令。使用下面的命令安装：
+安装ember-cli需要用到npm。我们把ember-cli安装在全局，只有这样才能够在命令行简单的使用ember命令。使用下面的命令安装：
 
 ```sh
 # windows
