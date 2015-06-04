@@ -62,7 +62,7 @@ apm install ember-cli-helper
 
 操作方法和st3类似，首先按下快捷键`Ctrl + Shift + P`，然后输入`svip`，找到并点击`Setting View: Install Packages and Themes`：
 
-<img src="images/atom_pc.png" title="atom package control" />
+<img src="images/atom_cp.png" title="atom package control" />
 
 然后进入到Install Packages的页面，里面有搜索，输入ember-cli-helper，点击蓝色的安装按钮就可以了。
 
