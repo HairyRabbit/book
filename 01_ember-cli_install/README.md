@@ -27,7 +27,7 @@ SET PATH=D:\Nodejs;%PATH%
 
 或者右键计算机 -> 属性 -> 高级系统设置 -> 高级 -> 环境变量 -> 系统变量 -> 找到PATH后双击，把nodejs的安装路径复制进去：
 
-![node_path](images/node_path.png)
+<img src="images/nodejs_path.png" title="nodejs install with windows path var" />
 
 ### nodejs with linux
 在linux的安装也很简单，拿Ubuntu为例，直接在包管理器里面就可以找到nodejs并下载，不过要记得加sudo：
