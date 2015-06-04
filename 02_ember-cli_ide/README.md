@@ -16,12 +16,12 @@ import urllib.request,os,hashlib;h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a
 
 回车确定后重启st3，这样就可以使用[Package Control](https://packagecontrol.io/installation)了。使用快捷键`Ctrl + Shift + P`打开st3的命令行输入`cpi`(Control Package Install)，然后输入名称来查找我们常用的插件比如sass、less、coffee。
 
-<img src="images/st_cp.png" title="sublime text 3 Package Control" width="128" />
+<img src="images/st_cp.png" title="sublime text 3 Package Control" />
 
 对于ember来说有一些常用的插件，这样我们在输入的时候就会有自动补全：
 
 ### hbs
-* [Handlebars](https://packagecontrol.io/packages/Handlebars)
+* [Handlebars Snippets](https://packagecontrol.io/packages/Handlebars)
 
 ### ember
 * [Ember.​js Snippets](https://packagecontrol.io/packages/Ember.js%20Snippets)
@@ -29,6 +29,15 @@ import urllib.request,os,hashlib;h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a
 
 ### 资源
 * [sublime](https://github.com/JaredCubilla/sublime)
+
+在使用st3和ember-cli的时候还需要注意一个地方。由于ember-cli使用Broccoli，而Broccoli会在tmp生成大量的文件夹和文件，这会变得很慢。最好的办法就是让st3不要监视tmp文件夹的变化，所以需要在用户设置 Preferences -> Settings -> User里面加入这样一句话:
+
+```js
+// folder_exclude_patterns and file_exclude_patterns control which files
+// are listed in folders on the side bar. These can also be set on a per-
+// project basis.
+"folder_exclude_patterns": [".svn", ".git", ".hg", "CVS", "tmp/class-*", "tmp/es_*", "tmp/jshinter*", "tmp/replace_*", "tmp/static_compiler*", "tmp/template_compiler*", "tmp/tree_merger*", "tmp/coffee_script*", "tmp/concat-tmp*", "tmp/export_tree*", "tmp/sass_compiler*"]
+```
 
 ## Atom
 
