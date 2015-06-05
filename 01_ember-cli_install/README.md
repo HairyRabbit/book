@@ -60,7 +60,9 @@ v0.12.4
 
 表示安装成功。
 
-## bower and ember-cli
+## ember-cli、bower、PhantomJS
+
+注意：没看上面的同学要注意的是，ember-cli需要的nodejs版本是0.12.X以上，如果你的nodejs版本不是0.12，那就赶紧先去下载最新版本吧。
 
 安装ember-cli需要用到npm。我们把ember-cli安装在全局，只有这样才能够在命令行简单的使用ember命令。使用下面的命令安装：
 
@@ -87,7 +89,7 @@ node: 0.12.4
 npm: 2.11.0
 ```
 
-bower是一个前端依赖管理器，我们常用到的需要包都可以在bower里面找到，比如jQuery。当然ember也在里面。安装bower也是用npm去全局安装：
+[bower](bower.io)是一个前端依赖管理器，我们常用到的需要包都可以在bower里面找到，比如jQuery。当然ember也在里面。安装bower也是用npm去全局安装：
 
 ```sh
 npm install -g bower
@@ -101,8 +103,49 @@ bower -v
 
 这样会看到bower的当前版本号。
 
-当然我们可以把两个命令合起来一并安装：
+[PhantomJS](phantomjs.org)是一个浏览器，这么说应该不过分。他没有界面让我们看，只是跑代码，所以这个东东用来测试非常合适，ember-cli默认是使用他来进行测试的。安装的方法也是通过npm安装：
 
 ```sh
-npm install -g bower ember-cli
+npm install -g phantomjs
 ```
+
+当然我们可以把这些命令合起来一并安装：
+
+```sh
+npm install -g ember-cli bower phantomjs
+```
+
+这样我们需要的工具就全部安装完成。
+
+## 淘宝 npm 源
+
+对于我们的超级防火墙，那是牛的不行。google、youtube、twitter、facebook什么的在国内打不开，只能翻墙走VPN。这样就有了一个问题，如果npm上的代码一部分挂在google的服务器组，那肯定是下载不下来的。为了解决这个问题，X宝出了[npm镜像](npm.taobao.org)，我们访问这个镜像就可以很轻松的下载。
+
+使用方法有很多，这里就简单介绍一种，只需要在npm后面加参数改变源就可以了：
+
+```sh
+npm --registry=https://registry.npm.taobao.org --cache=$HOME/.npm/.cache/cnpm --disturl=https://npm.taobao.org/dist --userconfig=$HOME/.cnpmrc
+```
+
+加好这些参数后npm的用法还是和以前一样，只不过会去请求X宝的源。不过ember-cli可以通过npm直接下载下来，已经过验证。
+
+## 淘宝 gem 源
+
+npm还好，gem就惨了，直接被墙掉了，使用gem安装sass肯定是下载不来的。好在X宝也有gem源。gem源需要替换：
+
+```sh
+gem sources --remove https://rubygems.org/
+gem sources -a https://ruby.taobao.org/
+```
+
+这样我们就可以从X宝的源安装了：
+
+```sh
+gem instal sass
+```
+
+## summary
+
+所需要的工具安装好之后就可以开心的开始coding啦，慢着，我们还需要一个好用的编辑器。
+
+[下一节 ember-cli 与编辑器](https://github.com/yuffiy/book/tree/master/02_ember-cli_editor)

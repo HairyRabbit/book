@@ -99,3 +99,5 @@ emacs的按键实在太好用了，而且可以随意定制(前提是会Lisp，�
 <img src="images/emacs_ember.png" title="emacs with ember" />
 
 选择一个好的工具固然重要，倒也不是必须的，毕竟大家使用记事本不靠自动补全也是完全没有问题的嘛。
+
+[上一节 ember-cli 安装](https://github.com/yuffiy/book/tree/master/01_ember-cli-install)
