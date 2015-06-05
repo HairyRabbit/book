@@ -13,7 +13,7 @@ ember & cli :kiss:
 
 真正喜欢Ember的原因其实是因为ES6。Ember是首先使用ES6模块的MVC框架，并且那时候源码也都改造成了ES6模块。RSVP是一个promiss库，也是由Ember核心团队的成员开发，这个也是我看中Ember的一个原因，因为是真真切切被jQuery的promiss摧残过。
 
-值得高兴的一点是，Ember马上要发2.0版本。Canary版本现在已经是2.0，最近正在玩。
+**1.13**是Ember 1.X的最后一个版本，下一个版本号是从2.0开始。2.X具备了很多新的和好玩的特性，很令人期待。Canary版本现在已经是2.0，最近正在玩。
 
 ## ember-cli
 
@@ -54,4 +54,17 @@ ember-cli在**各种**平台都能够运行。
 * ember 2.0-cancay
 * ember-cli 0.2.7
 
-并且这些示例在win下都测试过，能够正常运行。
+并且所有示例都在win下都测试过，能够正常运行。
+
+## 感谢
+
+* [Ember官方网站](http://emberjs.com)
+* [Ember中文官网](http://emberjs.cn)
+* [ember-cli官网网站](http://ember-cli.com)
+* Ember QQ群 298026365
+* [私人群Blisss](tencent://groupwpa/?subcmd=all&param=7B2267726F757055696E223A3132333632353231372C2274696D655374616D70223A313433333437373234367D0A)
+
+感谢老大 @towerhe 对中文社区的贡献和各位ember coder的支持。
+
+特别感谢 @huangdandan 同学对本文的校验。
+
