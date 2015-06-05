@@ -148,4 +148,4 @@ gem instal sass
 
 所需要的工具安装好之后就可以开心的开始coding啦，慢着，我们还需要一个好用的编辑器。
 
-[下一节 ember-cli 与编辑器](https://github.com/yuffiy/book/tree/master/02_ember-cli_editor)
+[下一节 ember-cli 与编辑器](https://github.com/yuffiy/book/tree/master/02_ember-cli_editor/README.md)

@@ -1,6 +1,10 @@
 ember & cli :kiss:
 ========
 
+## 导航
+* [ember-cli 安装](https://github.com/yuffiy/book/tree/master/01_ember-cli_install/README.md)
+* [ember-cli 与编辑器](https://github.com/yuffiy/book/tree/master/02_ember-cli_editor/README.md)
+
 ## ember.js
 
 首先是要简单的介绍一下，[EmberJS](emberjs.com) 是一个MVC框架，恩。
