@@ -82,9 +82,9 @@ emacs的按键实在太好用了，而且可以随意定制(前提是会Lisp，�
 
 虽然emacs使用的人不多，但是也有必要提一下，原因是他有一个[ember-mode](https://github.com/madnificent/ember-mode)，这个主模式提供了一组快捷键，使用`C-c`加各种组合就可以快速的使用ember-cli的各种功能，很强大。安装方法很多，最简单的一种就是把源码下载下来，打开后`M-x package-install-from-buffer`。不过这里要注意一个地方，源码有一处错误会导致安装不成功，Version那里需要加一个`:`号，PR已经提交。
 
-<img src="images/emacs_ember_modal.jpg" title="emace install ember-modal.el" />
+<img src="images/emacs_ember_modal.png" title="emace install ember-modal.el" />
 
-<img src="images/emacs_ember_modal_done.jpg" title="emace install ember-modal.el done" />
+<img src="images/emacs_ember_modal_done.png" title="emace install ember-modal.el done" />
 
 ## summary
 
