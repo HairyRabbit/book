@@ -73,3 +73,21 @@ apm install ember-cli-helper
 ## Emacs
 
 <img src="images/emacs.png" title="atom" width="128" />
+
+额，对于这个编辑器应该说点好什么呢。emacs是我日常coding的编辑器，并且以后也一直是。这个编辑器挺魔性的，用习惯后停不下来，其他编辑器基本都废了。然而在用过HHKB之后更是这样，说到这里很有必要晒一下我的HHKB(请原谅我)：
+
+<img src="images/hhkb.jpg" title="hhkb" />
+
+emacs的按键实在太好用了，而且可以随意定制(前提是会Lisp，或者会复制粘贴)。
+
+虽然emacs使用的人不多，但是也有必要提一下，原因是他有一个[ember-mode](https://github.com/madnificent/ember-mode)，这个主模式提供了一组快捷键，使用`C-c`加各种组合就可以快速的使用ember-cli的各种功能，很强大。安装方法很多，最简单的一种就是把源码下载下来，打开后`M-x package-install-from-buffer`。不过这里要注意一个地方，源码有一处错误会导致安装不成功，Version那里需要加一个`:`号，PR已经提交。
+
+当然还有一些其他编辑器也非常优秀，比如[WebStorm](https://www.jetbrains.com/webstorm/)，这里介绍这三个的原因是因为他们的一些插件可以帮助我们提高开发效率，下面是一些使用这些插件的截图：
+
+<img src="images/st3_handlebar.png" title="st3 with hbs" />
+
+<img src="images/st3_ember.png" title="st3 with ember" />
+
+<img src="images/atom_ember.png" title="atom with ember" />
+
+选择一个好的编辑器固然重要，倒也不是必须的，毕竟大家使用记事本不靠自动补全也是完全没有问题的嘛。
