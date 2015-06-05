@@ -63,7 +63,7 @@ ember-cli在**各种**平台都能够运行。
 * [ember-cli官网网站](http://ember-cli.com)
 * Ember QQ群 298026365
 * [私人群Blisss](tencent://groupwpa/?subcmd=all&param=7B2267726F757055696E223A3132333632353231372C2274696D655374616D70223A313433333437373234367D0A)
-* <a href="tencent://groupwpa/?subcmd=all&param=7B2267726F757055696E223A3132333632353231372C2274696D655374616D70223A313433333437373234367D0A" title="Blisss">私人群Blisss</a>
+<a href="tencent://groupwpa/?subcmd=all&param=7B2267726F757055696E223A3132333632353231372C2274696D655374616D70223A313433333437373234367D0A" title="Blisss">私人群Blisss</a>
 
 感谢老大[@towerhe](https://github.com/towerhe)对中文社区的贡献和各位ember coder的支持。
 
