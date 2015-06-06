@@ -19,6 +19,8 @@ ember-cli中有一个叫做**generate**的东东，用好她能大大提高打�
 
 这就是我们的路径规则，先不着急修改router.js。
 
+## 增删改查
+
 接下来设计一下用户模型，很简单，这里只需要姓名name、性别sex和年龄age和头像avatar四个字段。
 
 我们用ember generate来创建模板，在命令行输入下面命令：
@@ -289,3 +291,71 @@ export default DS.RESTAdapter.extend({
 
 <img src="images/demo_http.png" title="data form server" />
 
+绕了一个大圈子，现在是时候去实现doSave()了，修改`app/controllers/users/new.js`：
+
+```javascript
+// app/controllers/users/new.js
+
+doSave() {
+
+  let user = this.getProperties('avatar', 'name', 'age', 'sex');
+
+  user.avatar = user.avatar || 'default.png';
+
+  let record = this.store.createRecord('user', user);
+
+  record.save();
+}
+```
+
+点击保存按钮后会向服务器发送一个`POST`请求。查看`server/mocks/users.js`服务器端自动返回`201`code码，表示创建成功，虽然没往数据库里面存，但是demo就要有个demo的样子，对不。
+
+在服务器端返回实体：
+
+```javascript
+// server/mocks/users.js
+
+usersRouter.post('/', function(req, res) {
+  var len = users.length;
+  user = req.body.user;
+  user.id = len + 1;
+  users.push(user);
+  res.status(201).send({ 'user': user });
+});
+```
+
+如果控制报错说`req.body.user`是`undefined`，原因可能是因为`POST`请求需要解析**body**，而这里的express还没有**bodyParser**中间件。通过npm安装：
+
+```sh
+npm install --save body-parser
+```
+
+然后在`/server/index.js`中使用：
+
+```javascript
+// server/index.js
+var bodParser = require('body-parser');
+app.user(bodyParser());
+```
+
+接下来在doSave()添加保存成功后跳转：
+
+```javascript
+// app/controllers/users/new.js
+
+doSave() {
+
+// 此处省略XX字...
+  record.save().then(function() {
+
+    return this.transitionToRoute('users');
+
+  }.bind(this));
+}
+```
+
+这时我们再去执行保存，成功之后会跳回列表并且发现多了一条：
+
+<img src="images/demo_new.png" title="create user." />
+
+<img src="images/demo_new_done.png" title="create user success." />
