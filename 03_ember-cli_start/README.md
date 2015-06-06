@@ -10,7 +10,7 @@
 ember new aaa
 ```
 
-<img src="../images/ember-cli_create.png" title="create new project" />
+<img src="images/ember-cli_create.png" title="create new project" />
 
 这样会新创建一个aaa的文件夹。如果是在已有的文件夹创建项目，需要使用下面的命令：
 
@@ -46,18 +46,18 @@ ember s
 
 这时会看到broccoli开始编译：
 
-<img src="../images/ember-cli_serve.png" title="start server." />
+<img src="images/ember-cli_serve.png" title="start server." />
 
 
 编译成功之后会提示`Build successful - xxxxms.`，并且会显示合并的树和所用的时间。打开浏览器访问网址`http://localhost:4200`，如果是下面的画面，恭喜你。
 
-<img src="../images/ff_welcome.png" title="firefox welcome page." />
+<img src="images/ff_welcome.png" title="firefox welcome page." />
 
 ## app项目结构
 
 打开app文件夹我们可以看到项目结构树。来看一下这些文件都是做什么用的吧。
 
-<img src="../images/app_struct.png" title="app struct." />
+<img src="images/app_struct.png" title="app struct." />
 
 * **app.js** 程序入口，Ember.Application.create在这里申明。
 * **router.js** 路由，Ember.Router.map写在这里，我们要在这里配置url。
