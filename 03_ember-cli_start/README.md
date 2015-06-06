@@ -63,7 +63,7 @@ ember s
 * **router.js** 路由，Ember.Router.map写在这里，我们要在这里配置url。
 * **index.html** 主页面。单页App嘛，当然要有一个这样的页面，打开后发现有四个钩子：
 
-```hbs
+```handlebars
 {{content-for 'head'}}
 {{content-for 'head-footer'}}
 {{content-for 'body'}}
