@@ -10,12 +10,12 @@ ember-cli中有一个叫做**generate**的东东，用好她能大大提高打�
 
 按照ember-data的规则，一群用户应该使用user的复数，也就是users。如果是person要注意复数是people而不是persons，挑战英文水平的时刻到了。我们的路由根据上面的说明简单设计为：
 
-| 动作             | 路径            | 名称  | 作用               |
-| :----------------| ---------------:| :----:| :------------------|
-| 初始加载         | /users/index    | index | 所有用户           |
-| 点击新增用户按钮 | /users/new      | new   | 新增用户           |
-| 点击列表中的某只 | /users/:id      | user  | 显示用户的详细内容 |
-| 点击详细修改按钮 | /users/:id/edit | edit  | 修改用户           |
+| 动作             | 路径            | 名称  | 作用     |
+| :----------------| :---------------| :----:| :-------:|
+| 初始加载         | /users/index    | index | 所有用户 |
+| 点击新增用户按钮 | /users/new      | new   | 新增用户 |
+| 点击列表中的某只 | /users/:id      | user  | 用户详情 |
+| 点击详细修改按钮 | /users/:id/edit | edit  | 修改用户 |
 
 这就是我们的路径规则，先不着急修改router.js。
 
@@ -100,7 +100,7 @@ export default Ember.Route.extend({
 
 接下来我们来给列表模板app/templates/users/index.hbs添加内容：
 
-```handlebars
+```hbs
 <ul>
   {{#each model as |user|}}
   <li>
@@ -161,7 +161,7 @@ ember g route users/new
 
 修改新增用户模板`app/templates/users/new.hbs`：
 
-```handlebars
+```hbs
 <form {{action 'doSave' on='submit'}}>
   <div>
     {{input name="avatar" id="avatar" type="file" value=avatar}}
@@ -334,6 +334,7 @@ npm install --save body-parser
 
 ```javascript
 // server/index.js
+
 var bodParser = require('body-parser');
 app.user(bodyParser());
 ```
