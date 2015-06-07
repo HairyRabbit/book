@@ -3,7 +3,6 @@ ember & cli :kiss:
 
 :sunflower::sunflower: **ember.js** 和 **ember-cli** 的快速指南。
 
-## 导航
 * [ember-cli 安装](https://github.com/yuffiy/book/tree/master/01_ember-cli_install/README.md)
 * [ember-cli 与编辑器](https://github.com/yuffiy/book/tree/master/02_ember-cli_editor/README.md)
 
@@ -57,12 +56,12 @@ ember-cli在**各种**平台都能够运行。
 * nodejs 0.12.4
 * npm 2.0.1
 * emacs 24.0
-* ember 2.0-cancay
+* ember 1.12
 * ember-cli 0.2.7
 
 并且在win下测试通过，能够正常运行。
 
-## 感谢
+## Thanks
 
 * [Ember官方网站](http://emberjs.com)
 * [Ember中文官网](http://emberjs.cn)
