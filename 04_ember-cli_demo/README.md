@@ -1,6 +1,6 @@
 # ember-cli 快速开发
 
-ember-cli中有一个叫做**generate**的东东，用好她能大大提高打怪效率。这节我们主要来介绍她。
+ember-cli中有一个叫做**generate**的命令，用好他能大大提高打怪效率。这节我们主要来介绍他。
 
 ## 准备工作
 
@@ -29,9 +29,9 @@ demo是一个简单的用户增删改查，他包括一个列表用来显示用�
 ember g model user
 ```
 
-完成后我们看到ember-cli为我们生成了两个文件，一个就是user.js，他放在app/models里，一个是他的测试文件，放在tests/unit/models下面。打开app/models/user.js定义模型：
+完成后我们看到ember-cli生成了两个文件，一个是user.js，他放在`app/models`里，一个是测试文件，放在tests/unit/models下面。打开`app/models/user.js`定义模型：
 
-```javascript
+```js
 // app/models/user.js
 
 import DS from 'ember-data';
@@ -40,19 +40,19 @@ let attr = DS.attr;
 
 export default DS.Model.extend({
 
-  avatar: attr('string'), // 头像
-  name: attr('string'), // 姓名
-  age: attr('number'), // 年龄
-  sex: attr('boolean') // 性别 true: male, false: famale
+  avatar: attr('string'),
+  name: attr('string'),
+  age: attr('number'),
+  sex: attr('boolean') // true: male, false: famale
   
 });
 ```
 
 ## 用户列表
 
-接下来我们先来实现列表的逻辑，为此我们首先准备一组假数据：
+接下来先来实现用户列表，为此首先准备一组假数据：
 
-```javascript
+```js
 [{
   avatar: 'https://avatars3.githubusercontent.com/u/5752902',
   name: 'yufi',
@@ -68,15 +68,17 @@ export default DS.Model.extend({
 
 还是使用generate来生成路由：
 
+```sh
 ember g router users/index
+```
 
-这次看到生成了三个文件，除了路由，还生成了模板，这就是ember-cli贴心的地方，他知道你一定会去修改模板，所以提前为你生成。当然贴心的还不止这些，是时候解释刚才不着急修改router.js的原因了。打开router.js我们可以看到使用generate后ember-cli会自动修改路由。然而这里要注意，因为我们刚才使用的是users/index，所以不会自动为你创建index路由，原因是ember**约定**index的路径就是**/**。但是其他文件夹会创建index文件。
+这次看到生成了三个文件，除了路由，还生成了模板。这就是ember-cli贴心的地方，他知道你一定会去修改模板，所以提前为你生成。当然贴心的还不止这些，是时候解释刚才不着急修改router.js的原因了。打开router.js我们可以看到使用generate后ember-cli会自动修改路由。然而这里要注意默认路由的问题，因为我们刚才使用的是**users/index**，所以不会自动为你创建index路由，原因是ember**约定**index的路径就是**/**。但是会创建index文件。
 
 如果这里已经提前建好了模板，ember-cli会询问你是否需要重写，根据需要输入y或者n就可以了。
 
-将我们的假数据写在app/routes/users/index.js的model钩子里：
+将假数据写在`app/routes/users/index.js`的model钩子里：
 
-```javascript
+```js
 // app/routes/user/index.js
 
 import Ember from 'ember';
@@ -100,7 +102,7 @@ export default Ember.Route.extend({
 
 ```
 
-接下来我们来给列表模板app/templates/users/index.hbs添加内容：
+接下来给列表模板`app/templates/users/index.hbs`添加内容：
 
 ```hbs
 <ul>
@@ -117,7 +119,7 @@ export default Ember.Route.extend({
 
 完成之后看下浏览器里的变化，好像什么都没有，哪里错了么？
 
-我们知道访问根目录`/`实际访问的路由是index，而然我们的还没有index模板。访问`/users`则会看到刚才的列表：
+我们知道访问根目录`/`实际访问的路由是**index**，而然现在还没有index模板。访问`/users`则会看到刚才的列表：
 
 <img src="images/demo_list.png" title="users list." />
 
@@ -135,7 +137,7 @@ ember g route index
 
 将跳转逻辑写在beforeModel钩子里：
 
-```javascript
+```js
 // app/routes/index.js
 
 import Ember from 'ember';
@@ -146,12 +148,11 @@ export default Ember.Route.extend({
     this.transitionTo('users');
   }
 });
-
 ```
 
 页面自动刷新后看到自动跳到了`/users`，重新输入`http://localhost:4200`也会跳转。
 
-不过，头像太大了，写样式简单控制一下，打开`app/styles/app.css`：
+不过，貌似头像太大了，写样式简单控制一下，打开`app/styles/app.css`：
 
 ```css
 .avatar {
@@ -168,14 +169,18 @@ export default Ember.Route.extend({
 .avatar img {
   width: 100%; height: auto;
 }
-
 ```
 
 ## 新增用户
 
-很好，接下来我们来实现新增逻辑。修改我们的列表模板来增加一个新增用户按钮。因为这个按钮只有跳转到`users/new`这一个功能，所以用`link-to`就可以了：
+很好，接下来实现用户新增。修改列表模板来增加一个新增用户按钮。因为这个按钮只有跳转到`users/new`这一个功能，所以用`link-to`就可以了：
 
+```hbs
+{{!-- app/templates/users/index --}}
 
+{{!-- 在开头添加 --}}
+{{#link-to 'user.new'}}新增用户{{/link-to}}
+```
 
 创建一个新增用户的路由：
 
@@ -215,7 +220,7 @@ ember g route users/new
 
 创建好后会自动刷新页面，点击新增用户。浏览器跳转到了`/users/new`，并且看到刚刚创建的表单。
 
-接下来实现`doSave`逻辑，这时我们需要一个控制器了：
+接下来实现`doSave`逻辑，这时我们需要一个控制器：
 
 ```sh
 ember g controller users/new
@@ -244,15 +249,15 @@ export default Ember.Controller.extend({
 });
 ```
 
-这个`user`要保存到哪里呢？然而列表的实体是假的，并没有什么卵用。现在要做的是从服务器端提取数据：
+这个`user`要保存到哪里呢？然而列表的实体是假的，并没有什么卵用。所以接下来要做的是从服务器端提取数据：
 
 ```sh
 ember g http-mock users
 ```
 
-这次生成的内容有点多。多了一个`server`文件夹，里面生成了一个`index.js`，还有一个mocks文件夹，里面有需要的`users.js`。之后通过npm添加了个依赖，分别的**morgan**、**golb**、**express**。使用过nodejs的同学一定知道express。express是一个web框架，用来处理请求和响应。打开`users.js`可以看到增删改查都齐了，只需要处理数据就可以了。这里就链接数据库了，还是使用刚才的两个假数据。
+这次生成的内容有点多。多了一个`server`文件夹，里面生成了一个`index.js`，还有一个mocks文件夹，里面有需要的`users.js`。之后通过npm添加了三个依赖，分别是**morgan**、**golb**、和**express**。使用过nodejs的同学一定知道express。express是一个web框架，用来处理请求和响应。打开`users.js`可以惊奇的看到增删改查都齐了，只需要处理数据就可以了。这里就不连接数据库了，还是使用刚才的假数据。
 
-修改server/mocks/users.js部分代码：
+修改`server/mocks/users.js`：
 
 ```javascript
 var users = [{
@@ -276,7 +281,7 @@ usersRouter.get('/', function(req, res) {
 });
 ```
 
-然后修改`app/users/index`路由的model钩子换成从服务器端请求：
+接着修改`app/users/index`路由的model钩子，改成从服务器端请求：
 
 ```javascript
 model() { return this.store.find('user'); }
@@ -298,7 +303,7 @@ ember g adapter application
 
 在适配器/app/adapters/application.js里声明`namespace`：
 
-```javascript
+```js
 // app/adapters/application.js
 
 import DS from 'ember-data';
@@ -321,15 +326,13 @@ doSave() {
 
   let user = this.getProperties('avatar', 'name', 'age', 'sex');
 
-  user.avatar = user.avatar || 'default.png';
-
   let record = this.store.createRecord('user', user);
 
   record.save();
 }
 ```
 
-点击保存按钮后会向服务器发送一个`POST`请求。查看`server/mocks/users.js`服务器端自动返回`201`code码，表示创建成功，虽然没往数据库里面存，但是demo就要有个demo的样子，对不。
+点击保存按钮后会向服务器发送一个`POST`请求。查看`server/mocks/users.js`服务器端自动返回`201`code码，表示创建成功。
 
 在服务器端返回实体：
 
@@ -345,15 +348,15 @@ usersRouter.post('/', function(req, res) {
 });
 ```
 
-如果控制报错说`req.body.user`是`undefined`，原因可能是因为`POST`请求需要解析**body**，而这里的express还没有**bodyParser**中间件。通过npm安装：
+这里应该说有一个BUG，控制会报错说`req.body`是`undefined`，原因是因为`POST`请求需要解析**body**，而这里的express还没有**bodyParser**中间件。通过npm安装：
 
 ```sh
 npm install --save body-parser
 ```
 
-然后在`/server/index.js`中使用：
+然后在`/server/index.js`中添加：
 
-```javascript
+```js
 // server/index.js
 
 var bodParser = require('body-parser');
@@ -362,7 +365,7 @@ app.user(bodyParser());
 
 接下来在doSave()添加保存成功后跳转：
 
-```javascript
+```js
 // app/controllers/users/new.js
 
 doSave() {
@@ -404,9 +407,9 @@ this.route('user', { path: '/:user_id' }, function() {});
 进入修改用户的模板应该是从用户列表单击进去。首先应该给列表模板挂上链接，打开`app/templates/users/index.hbs`：
 
 ```hbs
-// app/templates/users/index.hbs
+{{!-- app/templates/users/index.hbs --}}
 
-// 修改 <span>{{user.name}}</span>
+{{!-- 修改 <span>{{user.name}}</span> --}}
 {{#link-to 'users.user' user}}{{user.name}}{{/link-to}}
 ```
 
@@ -417,7 +420,7 @@ this.route('user', { path: '/:user_id' }, function() {});
 接下来画一个详细信息的模板，打开`app/templates/users/user/index.hbs`：
 
 ```hbs
-// app/templates/users/user/index.hbs
+{{!-- app/templates/users/user/index.hbs --}}
 
 {{#link-to 'users'}}返回{{/link-to}}
 {{#with model as |user|}}
@@ -453,7 +456,7 @@ ember g route users/user/edit
 
 <img src="images/demo_detail.png" title="user detail info." />
 
-这时发现性别显示貌似不是我们想要的，这里我们需要一个helper来正确显示性别。新建hepler：
+这时发现性别显示貌似不是我们想要的，这里我们通过一个helper来正确显示性别。新建hepler：
 
 ```sh
 ember g helper sex-fmt
@@ -463,22 +466,22 @@ ember g helper sex-fmt
 // app/helper/sex-fmt.js
 
 export function sexFmt(params) {
-return params[0] ? '男' : '女';
+  return params[0] ? '男' : '女';
 }
 ```
 
 紧接着修改模板：
 
 ```hbs
-// app/templates/users/user/index
+{{!-- app/templates/users/user/index --}}
 
-// 修改 <span>{{user.sex}}</span>
+{{!-- 修改 <span>{{user.sex}}</span> --}}
 <span>{{sex-fmt user.sex}}</span>
 ```
 
 页面自动刷新，然而数据都没有了：
 
-<img src="demo_user_err.png" title="user detail err." />
+<img src="images/demo_user_err.png" title="user detail err." />
 
 这是什么情况呢？看下控制台，原来直接刷新这个页面会从服务器端`/users/1`去请求数据，而从列表跳过来因为数据已经有了，不需要从服务器端再去请求。这样我们需要修改服务器端返回单个用户信息，打开`server/mocks/users.js`：
 
@@ -494,7 +497,7 @@ usersRouter.get('/:id', function(req, res) {
 });
 ```
 
-然后服务器直接报错了，原因是因为数组原型没有find方法，貌似这个方法是ES6方法目前只在firefox里面有。那我们手动加个垫片进去：
+然后服务器直接报错了，原因是因为数组原型没有find方法，貌似这个方法是ES6方法，目前只在firefox里面有。那我们手动加个垫片进去：
 
 ```javascript
 // server/mocks/users.js
@@ -535,16 +538,16 @@ if (!Array.prototype.find) {
 
 ## 修改用户
 
-在做修改功能之前，发现了一个问题，貌似修改和新增模板差不多，只不过修改有默认值而新增没有罢了。这么一来把新增的模板直接复制到修改模板里面去有点不妥，组件正是我们需要的：
+在做修改功能之前，发现了一个问题，貌似修改和新增模板差不多，只不过修改有默认值而新增没有罢了。这么一来把新增的模板直接复制到修改模板里面去有点不妥。组件正是我们需要的：
 
 ```sh
 ember g component user-detail
 ```
 
-我们把`app/template/users/new.hbs`的内容复制到组件模板里面：
+我们把`app/template/users/new.hbs`的内容复制到组件模板里面，并修改绑定的值：
 
 ```hbs
-// app/templates/components/user-detail.hbs
+{{!-- app/templates/components/user-detail.hbs --}}
 
 <form {{action "doSave" on="submit"}}>
   <div>
@@ -576,7 +579,7 @@ ember g component user-detail
 然后我们就可以用组件替换模板里的内容了：
 
 ```hbs
-// app/templates/users/new.hbs
+{{!-- app/templates/users/new.hbs --}}
 
 {{user-detail submit="doSave"}}
 ```
@@ -647,7 +650,7 @@ export default Ember.Controller.extend({
 接着我们在修改模板也把组件放进去：
 
 ```hbs
-// app/templates/users/user/edit.hbs
+{{!-- app/templates/users/user/edit.hbs --}}
 
 {{#with model as |user|}}
 {{user-detail submit="doSave" person=user}}
@@ -658,7 +661,7 @@ export default Ember.Controller.extend({
 
 <img src="images/demo_edit.png" title="user edit." />
 
-点击保存按钮，出错了，因为还没有控制器：
+点击保存按钮，出错了，没有找到doSave()方法，因为还没有控制器：
 
 ```sh
 ember g controller users/user/edit.js
@@ -719,14 +722,14 @@ usersRouter.put('/:id', function(req, res) {
 
 ## 删除用户
 
-现在还剩下最后一个功能，删除，然而他也是最简单的。
+现在还剩下最后一个功能，删除，然而是最简单的功能。
 
 给用户详细页面的删除按钮一个action：
 
-```javascript
-// app/templates/users/user/index.hbs
+```hbs
+{{!-- app/templates/users/user/index.hbs--}}
 
-// 修改 <button type="button">删除</button>
+{{!-- 修改 <button type="button">删除</button>--}}
 <button type="button" {{action 'doDelete' user.id}}>删除</button>
 ```
 
@@ -778,6 +781,6 @@ usersRouter.delete('/:id', function(req, res) {
 
 ## Summary
 
-demo完成了，不过我知道你们一定看不下去。下一节我们用bootstrap来美化一下界面。
+demo完成了，不过我知道你们一定看不下去。下一节我们用bootstrap来美化一下界面好了。
 
-
+[上一节 ember-cli 快速开始](https://github.com/yuffiy/book/tree/04_ember-cli_demo/README.md)
