@@ -783,4 +783,4 @@ usersRouter.delete('/:id', function(req, res) {
 
 demo完成了，不过我知道你们一定看不下去。下一节我们用bootstrap来美化一下界面好了。
 
-[上一节 ember-cli 快速开始](https://github.com/yuffiy/book/tree/04_ember-cli_demo/README.md)
+[上一节 ember-cli 快速开始](https://github.com/yuffiy/book/tree/03_ember-cli_start/README.md)

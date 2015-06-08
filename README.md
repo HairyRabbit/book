@@ -5,6 +5,8 @@ ember & cli :kiss:
 
 * [ember-cli 安装](https://github.com/yuffiy/book/tree/master/01_ember-cli_install/README.md)
 * [ember-cli 与编辑器](https://github.com/yuffiy/book/tree/master/02_ember-cli_editor/README.md)
+* [ember-cli 快速熟悉](https://github.com/yuffiy/book/tree/master/03_ember-cli_start/README.md)
+* [ember-cli 快速开始](https://github.com/yuffiy/book/tree/master/04_ember-cli_demo/README.md)
 
 ## ember.js
 
@@ -74,4 +76,3 @@ ember-cli在**各种**平台都能够运行。
 特别感谢[@huangdandan](https://github.com/huangdandan)同学对本文的校验。
 
 如果发现了文内错误或是不合适的地方，强烈欢迎提交PR，Issue，或者给我发邮件[@yuffiy](mailto://yfhj1990@hotmail.com)。
-
