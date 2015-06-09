@@ -441,9 +441,9 @@ this.route('user', { path: '/:user_id' }, function() {});
   <span>性别：</span>
   <span>{{user.sex}}</span>
 </div>
-{{/with}}
 {{#link-to 'users.user.edit'}}修改{{/link-to}}
 <button type="button">删除</button>
+{{/with}}
 ```
 
 页面自动刷新后报错了，提示找不到`users.user.edit`，当然现在还没有创建他：
