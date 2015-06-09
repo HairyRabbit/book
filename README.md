@@ -18,7 +18,7 @@ ember & cli :kiss:
 
 同一时间也出了一些其他MVC框架，如[Backbone](http://backbonejs.org)、[Angular](http://angularjs.org)。像《why i choose Ember》之类比较性质的文章在网上能大片大片的看到，继而对这些框架也稍微做了了解。怎么说呢，我不太喜欢Angular在标签里那种写法；Backbone可能有些不能满足需求；而Ember，他太大了，加载有些慢。但是我还是无脑的选择了Ember，很大一个原因是他由**社区**驱动，现在这个开源年代，这么做很靠谱，说不定那天google跪了Angular也就不在了。
 
-要说真正喜欢Ember的原因是因为ES6。Ember是首先使用ES6模块的MVC框架，并且那时候源码也都改成使用ES6的模块。还有一点，RSVP是一个promiss库，也是由Ember核心团队的成员开发的。这也是我看好Ember的一个原因，因为真真切切被jQuery的promiss摧残过。
+要说真正喜欢Ember的原因是因为ES6。Ember是首先使用ES6模块的MVC框架，并且那时候源码也都改成使用ES6的模块。还有一点，RSVP是一个promise库，也是由Ember核心团队的成员开发的。这也是我看好Ember的一个原因，因为真真切切被jQuery的promise摧残过。
 
 可喜可贺**1.13**是Ember 1.X的最后一个版本，下一个版本号是从2.0开始。2.X具备了很多新的和好玩的特性，很令人期待。Canary版本现在已经是2.0，最近正在玩。
 
