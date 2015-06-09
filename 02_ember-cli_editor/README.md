@@ -101,4 +101,5 @@ emacs的按键实在太好用了，并且可以随意定制。
 选择一个好的工具固然重要，倒也不是必须的，毕竟大家使用记事本不靠自动补全也是完全没有问题的嘛。下一节我们来数据ember-cli工具的使用。
 
 [上一节 ember-cli 安装](https://github.com/yuffiy/book/tree/master/01_ember-cli-install/README.md)
-[下一节 ember-cli 快速熟悉](https://github.com/yuffiy/book/tree/03_ember-cli_start/README.md)
+
+[下一节 ember-cli 快速熟悉](https://github.com/yuffiy/book/tree/master/03_ember-cli_start/README.md)
