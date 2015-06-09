@@ -83,6 +83,6 @@ ember s
 
 在熟悉之后，接下来通过一个简单的CRUD demo来说明ember-cli generate的用法。
 
-[上一节 ember-cli 与编辑器](https://github.com/yuffiy/book/tree/03_ember-cli_start/README.md)
+[上一节 ember-cli 与编辑器](https://github.com/yuffiy/book/tree/master/03_ember-cli_start/README.md)
 
-[下一节 ember-cli 快速开始](https://github.com/yuffiy/book/tree/04_ember-cli_demo/README.md)
+[下一节 ember-cli 快速开始](https://github.com/yuffiy/book/tree/master/04_ember-cli_demo/README.md)
