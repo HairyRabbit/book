@@ -147,7 +147,7 @@ export default Ember.Route.extend({
 固定在头部的导航栏需要给`body`加`padding`，修改样式表：
 
 ```css
-// app/styles/app.css
+/*app/styles/app.css*/
 
 .body {
   padding-top: 50px;
@@ -190,7 +190,7 @@ export default Ember.Route.extend({
 接着添加样式：
 
 ```css
-// app/styles/app.css
+/* app/styles/app.css */
 
 .sidebar {
   display: none;
@@ -578,9 +578,9 @@ export default Ember.Component.extend({
 
 修改效果如下：
 
-<img src="demo_detail.png" title="user detail." />
+<img src="images/demo_detail.png" title="user detail." />
 
-<img src="demo_edit.png" title="user edited." />
+<img src="images/demo_edit.png" title="user edited." />
 
 ## 添加首页
 
@@ -755,10 +755,10 @@ export default Ember.Component.extend({
 
 修改完成，看看我们的首页现在是什么样子：
 
-<img src="demo_index_changed.png" title="index page changed." />
+<img src="images/demo_index_changed.png" title="index page changed." />
 
 添加一个用户试试：
 
-<img src="demo_index_create.png" title="user created." />
+<img src="images/demo_index_create.png" title="user created." />
 
-<img src="demo_index_done.png" title="index page users changed." />
+<img src="images/demo_index_done.png" title="index page users changed." />
