@@ -1,6 +1,6 @@
 # ember-cli 添加依赖
 
-接着上节的demo，现在我们使用[Bootstrap](http://getBootstrap.com)来美化界面。
+接上回，这节我们来用[Bootstrap](http://getBootstrap.com)美化界面。
 
 ## 安装 bs3
 
@@ -12,27 +12,27 @@ bower install bootstrap
 
 <img src="images/bs3_install.png" title="install bootstrap 3." />
 
-如果和图片中的不太一样也没有关系，因为之前bs3的原因，已经缓存下来。如果是第一次安装应该会看到下载文件。
+如果和图片中显示的不太一样也没有关系，因为我之前安装过bs3的原因，已经缓存下来。如果是第一次安装应该会看到下载文件的过程。
 
-使用bower安装后会在`boser.json`挂上bootstrap的名字，文件会安装到`bower_components`文件夹中：
+使用bower安装后会在`boser.json`挂上bootstrap的名字和所使用的版本号，文件会安装到`bower_components`文件夹中：
 
 <img src="images/bs3_bower.png" title="bootstrap with bower.json." />
 
 ## 调教 broccoli
 
-安装成功后需要把他导入项目里。具体要怎么做呢？我们知道项目是通过broccoli一路编译来的，思路就是在编译时加入bs3。打开`Brocfile.js`：
+安装成功后需要导入项目里。具体要怎么做呢？我们知道项目是通过broccoli一路编译来的，所以需要做的就是在编译时加入bs3。打开`Brocfile.js`：
 
-打开后发现里面有三行代码和大段注释。注释的大概意思就是要使用`app.import`导入依赖并输出。现在需要bs3的css文件，所以在注释下面加入：
+打开后发现里面有三行代码和大段注释。注释的大概意思就是使用`app.import`导入依赖并输出。现在需要bs3的css文件，在注释下面加入：
 
 ```js
 app.import('bower_components/bootstrap/dist/css/bootstrap.css');
 ```
 
-接着启动项目，看看broccoli编译好的文件。编译完成后打开`dist/assets/vendor.css`，可以看到broccoli把bs3合并在了这个样式表里，并且在控制台里也能看到合并任务**Concat Vendor**：
+接着启动项目，看看broccoli编译好的文件。编译完成后打开`dist/assets/vendor.css`，可以看到broccoli把bs3合并在了这个样式表里，并且在控制台里也能看到合并任务**Concat Vendor**和所花的时间：
 
 <img src="images/bs3_broccoli.png" title="bootstrap with broccoli." />
 
-好像有什么不对，bs3还有五个字体文件可能会用到。继续使用`app.import`导入：
+好像有什么不对劲的地方，bs3还有五个字体文件可能会用到。继续使用`app.import`导入：
 
 ```js
 var bsPath = 'bower_components/bootstrap/';
@@ -56,7 +56,7 @@ app.import(bsPath + 'fonts/glyphicons-halflings-regular.woff2', {
 });
 ```
 
-打开`dist`，五个字体文件被放在`fonts`文件夹下。任务完成，不过我知道你一定看不下去了，如果有100个呢，也要这么做么？这时我们需要一个broccoli插件来帮助完成这个工作，使用npm安装**broccoli-funnel**：
+打开`dist`文件夹，五个字体文件都被放在`fonts`文件夹下，任务完成。不过我知道你一定是看不下去了，那如果有100个呢，也要这么做？这时我们需要一个broccoli插件来帮助完成这个工作，使用npm安装**broccoli-funnel**：
 
 ```js
 npm install broccoli-funnel --save-dev
@@ -86,19 +86,19 @@ var bsFonts = new Funnel(bsPath, {
 module.exports = app.toTree(bsFonts);
 ```
 
-重新启动服务，检查`dist`，发现所有的字体都导入在fonts文件夹下了。不过像这种万年不变的文件，可以直接复制到`public`文件夹里面。因为`public`文件夹下的文件是直接复制在了`dist`文件夹下，利用这个也可以实现刚才的效果，不过bs更新后还要重新复制。当然，图片是可以这么做的，我们在`public`新建一个`images`文件夹：
+重新启动服务，检查`dist`文件夹，发现所有的字体都导入在fonts文件夹下了。不过像这种万年不变的文件，可以直接复制到`public`文件夹里面。因为`public`文件夹下的文件会直接复制在了`dist`文件夹下，利用这个功能也可以实现刚才的效果，不过万一bs更新后还要重新复制。当然，图片就可以这么做，我们在`public`新建一个`images`文件夹：
 
 ```sh
 mkdir public/images
 ```
 
-自动刷新后可以看到`images`被复制在`dist`下。
+自动刷新后可以看到`images`文件夹被复制在`dist`下。
 
 ## 添加菜单
 
 所需要的文件都准备好了，接下来开始美化工作。
 
-首先要把**Welcome to Ember.js**去掉，他已经没用了。
+首先要做些清理工作，把**Welcome to Ember.js**去掉，他已经不能继续作战了。
 
 ```hbs
 {{!-- app/templates/application.hbs --}}
@@ -106,7 +106,7 @@ mkdir public/images
 {{outlet}}
 ```
 
-把自动跳转到`/users`的钩子也去掉，因为也不需要了，删除`app/routes/index.js`的`beforeModel`：
+把自动跳转到`/users`的钩子也去掉，也不需要了，删除`app/routes/index.js`的`beforeModel`内容：
 
 ```js
 // app/routes/index.js
@@ -121,7 +121,7 @@ export default Ember.Route.extend({
 });
 ```
 
-在`app/templates/application.hbs`添加头部：
+开始添加内容。在`app/templates/application.hbs`添加头部：
 
 ```hbs
 {{!-- app/templates/application.hbs --}}
@@ -158,7 +158,7 @@ export default Ember.Route.extend({
 }
 ```
 
-然后添加侧边栏和菜单：
+接着添加侧边栏和菜单：
 
 ```hbs
 {{!-- app/templates/application.hbs --}}
@@ -187,7 +187,7 @@ export default Ember.Route.extend({
 </div>
 ```
 
-接着添加样式：
+然后添加一些样式：
 
 ```css
 /* app/styles/app.css */
@@ -230,19 +230,19 @@ export default Ember.Route.extend({
 }
 ```
 
-页面自动刷新，感觉立刻就高大上了：
+页面自动刷新后，立刻就高大上了：
 
 <img src="images/demo_index.png" title="demo with index." />
 
-点击链接访问`/users`：
+点击链接访问`/users`试试：
 
 <img src="images/demo_user.png" title="demo with users." />
 
-ember会为导航自动加上`active`样式。
+菜单变蓝，ember会为导航自动加上`active`样式。
 
 ## 修改用户管理模板
 
-接下来为增删改查模板添加标题和表格样式。首先打开用户列表模板：
+接下来为用户列表模板添加标题和表格样式。打开用户列表模板`app/templates/users/index.hbs`：
 
 ```hbs
 {{!-- app/templates/users/index.hbs --}}
@@ -277,7 +277,7 @@ ember会为导航自动加上`active`样式。
 
 <img src="images/demo_list.png" title="users list." />
 
-不过页面有些空，趁这个机会我们再多添加几个功能好了。
+不过页面有些空，趁现在我们再多添加几个功能好了。
 
 ## 批量删除
 
@@ -321,7 +321,7 @@ ember会为导航自动加上`active`样式。
 </tbody>
 ```
 
-修改控制器，添加一个**item控制器**，并且给实体添加isChecked属性，貌似之前新建过一个**item控制器**是`app/controllers/users/user/index.js`，这里直接用他好了：
+修改控制器，添加一个**itemController*，并且给实体添加isChecked属性，貌似之前新建过一个控制器，是`app/controllers/users/user/index.js`，这里直接用他好了：
 
 ```js
 // app/controllers/users/index.js
@@ -377,13 +377,13 @@ isChecked: Ember.computed('model', function() {
 })
 ```
 
-检查功能，全选和批量删除都可以正常使用：
+完成之后检查功能，全选和批量删除都可以正常使用：
 
 <img src="images/demo_list_checked.png" title="users list checked." />
 
 ## 列表筛选
 
-一般列表都有一个搜索栏用于各种条件搜索，来做一个最简单的姓名搜索吧。需要做的功能只有一个，那就是筛选角色姓名符合的用户。
+一般列表都有一个搜索栏，用于各种条件搜索。就来做一个最简单的姓名搜索吧。需要做的功能只有一个，筛选角色姓名符合的用户。
 
 还是先来修改模板：
 
@@ -434,7 +434,7 @@ searchValueDidChange: Ember.observer('searchValue', function() {
 }),
 ```
 
-这时主要要把全选里面用到**model**的地方，全部要换成**matchedUsers**，这样全选的数量才能选择正确。
+这时注意要把全选里面用到**model**的地方，全部要换成**matchedUsers**，这样全选的数量才能显示正确。
 
 让我们看看劳动成果：
 
@@ -442,15 +442,15 @@ searchValueDidChange: Ember.observer('searchValue', function() {
 
 ## 修改用户详情和编辑页面
 
-接下来的工作就轻松多了，还剩下用户详情和编辑页面。
+接下来的工作就轻松多了，只还剩下用户详情和编辑页面。
 
-性别和年龄我觉得可以放在一起显示，另外用姓名做标题。一步步来，先来创建一个组件用于显示性别和年龄
+性别和年龄我觉得可以放在一起显示，另外用用户详情可以用姓名做标题。一步步来，首先创建一个组件用来显示性别和年龄：
 
 ```sh
 ember g component sex-age
 ```
 
-修改组件模板：
+接下来修改组件模板：
 
 ```hbs
 {{!-- app/templates/components/sex-age.hbs --}}
@@ -461,7 +461,7 @@ ember g component sex-age
 </b>
 ```
 
-紧跟着修改组件，蓝色是男同学，红色是女同学：
+紧跟着修改组件，用颜色区分性别，蓝色表示汉子，红色表示汉子：
 
 ```js
 // app/components/sex-age.js
@@ -480,7 +480,7 @@ export default Ember.Component.extend({
 });
 ```
 
-然后修改用户详情模板，并且加上刚刚的组件：
+然后修改用户详情模板，加上刚才的组件：
 
 ```hbs
 {{!-- app/templates/users/user/index.hbs --}}
@@ -517,7 +517,7 @@ export default Ember.Component.extend({
 {{/with}}
 ```
 
-然后修改编辑页面的组件模板：
+然后修改编辑页面的组件模板，`app/templates/components/user-detail.hbs`：
 
 ```hbs
 {{!-- app/templates/components/user-detail.hbs --}}
@@ -584,11 +584,11 @@ export default Ember.Component.extend({
 
 ## 添加首页
 
-关掉服务重启，打开`localhost:4200`，来欣赏一下我们的成果。貌似哪里还不太对，首页右边什么都没有。现在就来添加内容。
+关掉服务重启并打开`localhost:4200`，来欣赏一下我们的成果。貌似哪里还不太对，首页右边什么都没有。不行！现在就来给他添加内容。
 
-那具体要添加些什么呢？为了应付观众老爷们，我决定弄一个大些的欢迎框，然后把用户信息简单统计到首页来。
+那具体要添加些什么呢？为了糊弄观众老爷们，我决定弄一个大些的欢迎框，然后把用户信息简单统计到首页来。
 
-根据上边的说明，首页是一个视图容器，包括两个子视图，可能还需要一个控制器和一个饼图。快速生成：
+根据上边的说明，首页是一个视图容器，包括两个子视图，可能还需要一个控制器和一个饼图。利用ember-cli快速生成：
 
 ```sh
 ember g controller index
@@ -606,7 +606,7 @@ ember g template index/users
 ember g component chart-pie
 ```
 
-好吧……先来做视图容器：
+好吧……有点略多。先来处理视图容器：
 
 ```js
 // app/views/index/welcome.js
@@ -630,7 +630,7 @@ export default Ember.View.extend({
 });
 ```
 
-修改首页视图：
+接下来修改首页视图：
 
 ```js
 // app/views/index.js
@@ -644,7 +644,7 @@ export default Ember.ContainerView.extend({
 });
 ```
 
-这样设置就可以了，然后添加内容，先来巨型框：
+这样设置就没问题了。然后在模板里添加内容，先来最简单的巨型框：
 
 ```hbs
 {{!-- app/templates/index/welcome.hbs --}}
@@ -655,7 +655,7 @@ export default Ember.ContainerView.extend({
 </div>
 ```
 
-添加用户管理统计模板：
+接下来添加用户管理统计模板：
 
 ```hbs
 {{!-- app/templates/index/users.hbs --}}
@@ -677,7 +677,7 @@ export default Ember.ContainerView.extend({
 </div>
 ```
 
-需要用到总人数和男女数量，获取数据要用到model钩子，那需要做的就是修改路由了，打开`app/routes/index.js`，里面有之前的beforeModel钩子，在下面添加model钩子就可以了。可能首页还有其他统计信息，看样子这里需要用到RSVP.hash：
+这里需要用到总人数和男女数量，获取数据要用到model钩子，需要做的就是修改路由。打开`app/routes/index.js`，看到之前的beforeModel钩子还躺在那里，在下面接着添加model钩子。因为首页可能还会有其他统计信息，看样子这里需要用到**RSVP.hash**：
 
 ```js
 // app/routes/index.js
@@ -689,7 +689,7 @@ model() {
 }
 ```
 
-在控制器里边统计信息，打开`app/controllers/index.js`：
+在控制器里边添加统计信息，打开`app/controllers/index.js`：
 
 ```js
 // app/controllers/index.js
@@ -716,19 +716,19 @@ export default Ember.Controller.extend({
 });
 ```
 
-接下来就是饼图了，我们来使用一个相对简单一点的，他就是[Chart.js](https://github.com/nnnick/Chart.js)。使用bower安装他：
+接下来就是饼图了，我们来使用一个简单的，那就是[Chart.js](https://github.com/nnnick/Chart.js)。使用bower安装他：
 
 ```sh
 bower install --save Chart.js
 ```
 
-然后修改`Brocfile.js`，把他导入项目中：
+然后修改`Brocfile.js`，把他请到项目来：
 
 ```js
 app.import(bowerPath + 'Chart.js/Chart.min.js');
 ```
 
-之后继续回来，修改饼图组件`chart-pie`：
+之后重启项目。继续回来，修改饼图组件`chart-pie`：
 
 ```hbs
 {{!-- app/templates/components/chart-pie.hbs --}}
@@ -736,7 +736,7 @@ app.import(bowerPath + 'Chart.js/Chart.min.js');
 canvas class="chart" width="260" height="260"></canvas>
 ```
 
-在dom准备完成后初始化饼图：
+在dom准备完成后需要初始化饼图：
 
 ```js
 // app/components/chart-pie.js
@@ -753,7 +753,7 @@ export default Ember.Component.extend({
 });
 ```
 
-修改完成，看看我们的首页现在是什么样子：
+修改完成，看看我们的首页现在的样子：
 
 <img src="images/demo_index_changed.png" title="index page changed." />
 
@@ -762,3 +762,7 @@ export default Ember.Component.extend({
 <img src="images/demo_index_create.png" title="user created." />
 
 <img src="images/demo_index_done.png" title="index page users changed." />
+
+## Summary
+
+功能完成，总之看上去比之前好多了。下一节我们来添加ember-cli插件，顺便把数据持久化到localstorage。
