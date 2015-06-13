@@ -757,7 +757,7 @@ export default Ember.Component.extend({
 
 <img src="images/demo_index_changed.png" title="index page changed." />
 
-添加一个用户试试： 
+添加一个用户试试：
 
 <img src="images/demo_index_create.png" title="user created." />
 
