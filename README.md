@@ -7,6 +7,7 @@ ember & cli :kiss:
 * [ember-cli 与编辑器](https://github.com/yuffiy/book/tree/master/02_ember-cli_editor/README.md)
 * [ember-cli 快速熟悉](https://github.com/yuffiy/book/tree/master/03_ember-cli_start/README.md)
 * [ember-cli 快速开始](https://github.com/yuffiy/book/tree/master/04_ember-cli_demo/README.md)
+* [ember-cli 添加依赖](https://github.com/yuffiy/book/blob/master/05_ember-cli_brocfile/README.md)
 
 ## ember.js
 
