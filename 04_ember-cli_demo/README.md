@@ -69,7 +69,7 @@ export default DS.Model.extend({
 还是使用generate来生成路由：
 
 ```sh
-ember g router users/index
+ember g route users/index
 ```
 
 这次看到生成了三个文件，除了路由，还生成了模板。这就是ember-cli贴心的地方，他知道你一定会去修改模板，所以提前为你生成。当然贴心的还不止这些，是时候解释刚才不着急修改router.js的原因了。打开router.js我们可以看到使用generate后ember-cli会自动修改路由。然而这里要注意默认路由的问题，因为我们刚才使用的是**users/index**，所以不会自动为你创建index路由，原因是ember**约定**index的路径就是**/**。但是会创建index文件。
