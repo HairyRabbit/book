@@ -115,6 +115,39 @@ npm install -g ember-cli bower phantomjs
 
 这样我们需要的工具就全部安装完成。
 
+## ember-inspector
+
+[ember-inspector](https://github.com/emberjs/ember-inspector)对于ember开发者而言是一个非常有用的工具。他是一个浏览器插件，用来调试ember的各种东东，包括视图树，路由，数据等等等，并且可以查看渲染性能：
+
+<img src="images/ember-inspector.png" title="ember-inspector tool." />
+
+他可以在ff和ch安装。chrome直接在商店搜就可以了，或者点击这个[Chrome Stroe](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)；firefox的话附加组件里面搜不到，要点击这里安装[firefox addon](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)。
+
+## watchman
+
+用过Grunt或是Gulp的同学一定对watch不会陌生，他用来监视文件改变。同样，[watchman](https://facebook.github.io/watchman)也是做这个的，从名字就可以看出，而ember-cli默认使用的就是watchman。如果没有安装他，ember-cli会告诉你没有使用watchman而使用node watch代替:
+
+```sh
+Could not find watchman, falling back to NodeWatcher for file system events
+```
+
+很可惜的是watchman不支持在win上运行。安装方法很简单，在官方下载[watchman源码](https://github.com/facebook/watchman.git)解压安装就可以了。不过安装他要有autoconf和automake，这两个东东可以通过apt-get去安装：
+
+```sh
+sudo apt-get install autoconf
+```
+
+安装autoconf时会自动安装automake。安装完成后就可以通过下面的命令去安装watchman了：
+
+```sh
+./autogen.sh
+./configure
+make
+sudo make install
+```
+
+一步步来就可以安装成功。安装时有一些选项可以附加，比如安装路径一类，查阅官方文档就好了。
+
 ## X宝 npm 源
 
 对于吾国的超级防火墙，那是服的不行，google、youtube、twitter、facebook什么的在国内打不开，只能翻墙走代理。这样就有了一个问题，如果npm上的包挂在google的服务器组，那肯定下载不来。为了解决这个问题，X宝出了[npm镜像](npm.taobao.org)，我们访问这个镜像就可以很轻松的下载。
@@ -122,7 +155,7 @@ npm install -g ember-cli bower phantomjs
 使用方法有很多，这里就简单介绍一种，只需要在npm后面加参数改变源就可以了：
 
 ```sh
-npm --registry=https://registry.npm.taobao.org --cache=$HOME/.npm/.cache/cnpm --disturl=https://npm.taobao.org/dist --userconfig=$HOME/.cnpmrc
+npm --registry=https://registry.npm.taobao.org
 ```
 
 加好这些参数后npm的用法还是和以前一样，只不过会去请求X宝的源。不过ember-cli可以通过npm直接下载下来，已经过验证。
