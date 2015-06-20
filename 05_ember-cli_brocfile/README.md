@@ -1,4 +1,4 @@
-# ember-cli 添加依赖 
+# ember-cli 添加依赖
 
 接上回，这节我们来用[Bootstrap](http://getBootstrap.com)美化界面。
 
