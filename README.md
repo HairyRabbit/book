@@ -1,4 +1,4 @@
-ember & cli :kiss:
+ember & cli :kiss: 
 ========
 
 :sunflower::sunflower: **ember.js** 和 **ember-cli** 的快速指南。
